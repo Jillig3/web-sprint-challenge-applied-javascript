@@ -36,9 +36,9 @@ const Card = (article) => {
   cardAuthor.className = "author";
   imgContainer.className = "img-container";
   
-  cardHead.textContent = `headline: ${headline}`;
-  cardImg.src = `authorPhoto: ${authorPhoto}`;
-  cardName.textContent = `authorName: ${authorName}`;
+  cardHead.textContent = article.headline;
+  cardImg.src = article.authorPhoto;
+  cardName.textContent = article.authorName;
 
   cardDiv.addEventListener('click', () => {
     console.log(cardHead);

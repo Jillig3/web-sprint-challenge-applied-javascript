@@ -31,9 +31,9 @@ const Tabs = (topics) => {
   tabBs.classList.add('tab');
   tabTech.classList.add('tab');
 
-  tabJs.textContent = `${Tabs[1]}`
-  tabBs.textContent = `${Tabs[2]}`
-  tabTech.textContent = `${Tabs[3]}`
+  tabJs.textContent = topics[0];
+  tabBs.textContent = topics[1];
+  tabTech.textContent = topics[2];
 
 
   return tabTopics;
