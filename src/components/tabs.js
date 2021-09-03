@@ -18,30 +18,21 @@ const Tabs = (topics) => {
   //
 
   const tabTopics = document.createElement('div');
-  const tabJs = document.createElement('div');
-  const tabBs = document.createElement('div');
-  const tabTech = document.createElement('div');
-
-  tabTopics.appendChild(tabJs);
-  tabTopics.appendChild(tabBs);
-  tabTopics.appendChild(tabTech);
-
   tabTopics.classList.add('topics');
-  tabJs.classList.add('tab');
-  tabBs.classList.add('tab');
-  tabTech.classList.add('tab');
 
-  tabJs.textContent = topics[0];
-  tabBs.textContent = topics[1];
-  tabTech.textContent = topics[2];
-
+  for (let i = 0; i < topics.length; i++){
+    console.log(topics[i]);
+    let abTab = document.createElement('div');
+    abTab.classList.add('tab');
+    tabTopics.appendChild(abTab);
+    abTab.textContent = topics[i];
+  }
 
   return tabTopics;
 
-
 }
 
-const tabsAppender = (selector) => {
+const tabsAppender = async (selector) => {
   // TASK 4
   // ---------------------
   // Implement this function which takes a css selector as its only argument.
@@ -49,19 +40,27 @@ const tabsAppender = (selector) => {
   // Find the array of topics inside the response, and create the tabs using the Tabs component.
   // Append the tabs to the element in the DOM that matches the selector passed to the function.
   //
-//   try {
-//     const resp = await axios.get(`http://localhost:5000/api/topics`);
-//     for (let i= 0; i < resp.data.message[i]; i++) {
-//     const tabApp = Tabs(selector);
-//     tabContainer.appendChild(tabApp);
-//     }
-//   } catch(err) {
-//     const errorText = document.createElement('p');
-//     errorText.textContent = "no topics here";
-//     document.body.appendChild(errorText);
-//   }finally {
-//     console.log("this shows up at least");
-//   }
+  try {
+    const resp = await axios.get(`http://localhost:5000/api/topics`);
+    const tabApp = resp.data.topics;
+    let newTab = Tabs(tabApp);
+    const tApp = document.querySelector(selector);
+    tApp.appendChild(newTab); 
+  } 
+  // catch(err) {
+  //   const errorText = document.createElement('p');
+  //   errorText.textContent = "no topics here";
+  //   document.body.appendChild(errorText);
+  // }
+  finally {
+  
+    console.log("this shows up at least");
+  }
 }
 
 export { Tabs, tabsAppender }
+
+// let newHeader = Header('title', 'date', 'temp');
+// const selecApp = document.querySelector(selector);
+// selecApp.appendChild(newHeader);
+
