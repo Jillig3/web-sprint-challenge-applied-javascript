@@ -60,12 +60,15 @@ const cardAppender = async (selector) => {
     const resp = await axios.get(`http://localhost:5000/api/articles`);
     console.log(resp);
     for (let [key, value] of Object.entries(resp.data.articles)){
-      console.log(`${key}: ${value}`);
-    }
-    // const tabApp = resp.data.articles;
-    // let newTab = Tabs(tabApp);
-    // const tApp = document.querySelector(selector);
-    // tApp.appendChild(newTab); 
+      let objArticles = value;
+      console.log(objArticles);
+      for (let i = 0; i < objArticles.length; i++){
+        let cardFunc = Card(objArticles[i]);
+        const cardApp = document.querySelector(selector);
+        cardApp.appendChild(cardFunc);
+      }
+      
+    } 
   } 
   // catch(err) {
   //   const errorText = document.createElement('p');
