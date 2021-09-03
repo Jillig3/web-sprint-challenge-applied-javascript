@@ -57,7 +57,7 @@ const tabsAppender = (selector) => {
 //     }
 //   } catch(err) {
 //     const errorText = document.createElement('p');
-//     errorText.textContent = "no no no - not today";
+//     errorText.textContent = "no topics here";
 //     document.body.appendChild(errorText);
 //   }finally {
 //     console.log("this shows up at least");
