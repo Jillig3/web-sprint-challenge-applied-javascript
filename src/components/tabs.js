@@ -21,7 +21,7 @@ const Tabs = (topics) => {
   tabTopics.classList.add('topics');
 
   for (let i = 0; i < topics.length; i++){
-    console.log(topics[i]);
+    // console.log(topics[i]);
     let abTab = document.createElement('div');
     abTab.classList.add('tab');
     tabTopics.appendChild(abTab);
